@@ -1,43 +1,26 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Fertilizer {
     private String name;
-    private String type;
-//todo создать класс компонент с назв. и сод., созд класс для состава
-    //todo для анализа создать отдельный класс
-    private double nitrogenContent;
-    private double phosphorusContent;
-    private double potassiumContent;
+    private String space;
 
-    public Fertilizer(String name, String type, double nitrogenContent, double phosphorusContent, double potassiumContent) {
-        this.name = name;
-        this.type = type;
-        this.nitrogenContent = nitrogenContent;
-        this.phosphorusContent = phosphorusContent;
-        this.potassiumContent = potassiumContent;
+    //todo создать класс для состава где прописать процентное содержание каждого элемента
+    //todo для анализа создать отдельный класс
+    //todo сделать чтобы метод to string возвращал состав как на сайте фосагро
+    private List<Component> componentList;
+
+    public Fertilizer(String name, String space, List<Component> components) {
     }
 
     public String getName() {
         return name;
     }
-
-    public String getType() {
-        return type;
+    public String getSpace() {
+        return space;
     }
+    public List<Component> getComponentList(){ return componentList; }
 
-    public double getNitrogenContent() {
-        return nitrogenContent;
-    }
 
-    public double getPhosphorusContent() {
-        return phosphorusContent;
-    }
-
-    public double getPotassiumContent() {
-        return potassiumContent;
-    }
 }
