@@ -12,8 +12,8 @@ public class Main {
     private String name;
     private String formule;
     private double value;
-
-
+    private double maxValue;
+    private String UnitOfMeasure;
     @Override
     public String toString() {
         return "Component{" +
@@ -22,7 +22,6 @@ public class Main {
                 ", количество ='" + value + '\'' +
                 '}';
     }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название удобрения:");
@@ -30,14 +29,14 @@ public class Main {
 
         List<Fertilizer> fertilizers = new ArrayList<>();
         List<Component> components1 = new ArrayList<>();
-        components1.add(new Component("азот", "N", 12)); // %
+        components1.add(new Component("азот", "N", 12, 14)); // %
         components1.add(new Component("оксид фосфора", "P₂O₅", 52)); // ?
         components1.add(new Component("сера", "S", 2.5)); // от 2.5
         components1.add(new Component("оксид фосфора в.раств.", "P₂O₅", 90)); // %
         components1.add(new Component("оксид магния", "MgO", 0.1 - 0.6)); // %
         components1.add(new Component("оксид фосфора ц.раств.", "P₂O₅", 95)); // %
-        Fertilizer ammophous = new Fertilizer("аммофос", " ", components1);
-        fertilizers.add(ammophous);
+        Fertilizer fertilizer = new Fertilizer("аммофос", " ", components1);
+        fertilizers.add(fertilizer);
 
         List<Component> components2 = new ArrayList<>();
         components2.add(new Component("азот", "N", 15)); // %
@@ -47,8 +46,8 @@ public class Main {
         components2.add(new Component("оксид фосфора ц.раств.", "P₂O₅", 95)); // %
         components2.add(new Component("сера", "S", 10)); // от 10
         components2.add(new Component("оксид магния", "MgO", 0.3 - 1)); // %
-        Fertilizer NPK_S = new Fertilizer("NPK(S)", " ", components2);
-        fertilizers.add(NPK_S);
+        fertilizer = new Fertilizer("NPK(S)", " ", components2);
+        fertilizers.add(fertilizer);
 
         List<Component> components3 = new ArrayList<>();
         components3.add(new Component("азот", "N", 20)); // %
@@ -58,8 +57,8 @@ public class Main {
         components3.add(new Component("оксид фосфора ц.раств.", "P₂O₅", 95)); // %
         components3.add(new Component("сера", "S", 14)); //%
         components3.add(new Component("цинк", "Zn", 0.4)); //%
-        Fertilizer sulfoammophos = new Fertilizer("Сульфоаммофос", " ", components3);
-        fertilizers.add(sulfoammophos);
+        fertilizer = new Fertilizer("Сульфоаммофос", " ", components3);
+        fertilizers.add(fertilizer);
 
         List<Component> components4 = new ArrayList<>();
         components4.add(new Component("азот", "N", 10)); // %
@@ -69,43 +68,43 @@ public class Main {
         components4.add(new Component("оксид фосфора ц.раств.", "P₂O₅", 95)); // %
         components4.add(new Component("оксид магния", "MgO", 0.3 - 1)); // %
         components4.add(new Component("сера", "S", 2)); //%
-        Fertilizer diammophos = new Fertilizer("Диаммофос", " ", components4);
-        fertilizers.add(diammophos);
+        fertilizer = new Fertilizer("Диаммофос", " ", components4);
+        fertilizers.add(fertilizer);
 
         List<Component> components5 = new ArrayList<>();
         components5.add(new Component("азот", "N", 34.4)); // %
         components5.add(new Component("оксид фосфора", "P₂O₅", 26)); // %
-        Fertilizer ammonium_nitrate = new Fertilizer("Аммиачная селитра", "", components5);
-        fertilizers.add(ammonium_nitrate);
+        fertilizer = new Fertilizer("Аммиачная селитра", "", components5);
+        fertilizers.add(fertilizer);
 
         List<Component> components6 = new ArrayList<>();
         components6.add(new Component("азот", "N", 12)); // %
         components6.add(new Component("оксид фосфора", "P₂O₅", 61)); // %
-        Fertilizer monoammonium_phosphate = new Fertilizer("Моноаммонийфосфат", "", components6);
-        fertilizers.add(monoammonium_phosphate);
+        fertilizer = new Fertilizer("Моноаммонийфосфат", "", components6);
+        fertilizers.add(fertilizer);
 
         List<Component> components7 = new ArrayList<>();
         components7.add(new Component("азот", "N", 46.4)); // от 46.4
-        Fertilizer urea = new Fertilizer("Карбамид", "", components7);
-        fertilizers.add(urea);
+        fertilizer = new Fertilizer("Карбамид", "", components7);
+        fertilizers.add(fertilizer);
 
         List<Component> components8 = new ArrayList<>();
         components8.add(new Component("азот", "N", 11)); // %
         components8.add(new Component("оксид фосфора", "P₂O₅", 37)); // %
-        Fertilizer ammonium_polyphosphate = new Fertilizer("ЖКУ", "", components8);
-        fertilizers.add(ammonium_polyphosphate);
+        fertilizer = new Fertilizer("ЖКУ", "", components8);
+        fertilizers.add(fertilizer);
 
         List<Component> components9 = new ArrayList<>();
         components9.add(new Component("азот", "N", 20.5)); // %
         components9.add(new Component("сера", "S", 26)); // %
         components9.add(new Component("оксид магния", "MgO", 0.4 - 0.6)); // %
-        Fertilizer ammonium_sulfate = new Fertilizer("Сульфат аммония", "", components9);
-        fertilizers.add(ammonium_sulfate);
-//
-        for (Fertilizer fertilizer : fertilizers) {
-            if (fertilizer.getName().equalsIgnoreCase(componentName)) {
-                System.out.println("Состав удобрения " + fertilizer.getName() + ":");
-                for (Component component : fertilizer.getComponentList()) {
+        fertilizer = new Fertilizer("Сульфат аммония", "", components9);
+        fertilizers.add(fertilizer);
+
+        for (Fertilizer fertilizer1 : fertilizers) {
+            if (fertilizer1.getName().equalsIgnoreCase(componentName)) {
+                System.out.println("Состав удобрения " + fertilizer1.getName() + ":");
+                for (Component component : fertilizer1.getComponentList()) {
                     System.out.println(component.getName() + ": " + component.getValue() + "%");
                 }
 

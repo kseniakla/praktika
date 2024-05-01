@@ -7,12 +7,12 @@ public class Component {
     private UnitOfMeasure unitOfMeasure;
 
 
-    public Component(String name, String formule, double value) {
+    public Component(String name, String formule, double value, double valueMax, UnitOfMeasure unitOfMeasure) {
         this.name = name;
         this.formule = formule;
         this.value = value;
-
-
+        this.valueMax = valueMax;
+        this.unitOfMeasure = unitOfMeasure;
     }
 
     public String getName() {
@@ -26,8 +26,24 @@ public class Component {
     public double getValue() {
         return value;
     }
-    public static void main(String[] args) {
 
+    public double getValueMax() {
+        return valueMax;
+    }
+
+    public UnitOfMeasure getUnitOfMeasure() {
+        return unitOfMeasure;
+    }
+
+    @Override
+    public String toString() {
+        return "Component{" +
+                "name='" + name + '\'' +
+                ", formule='" + formule + '\'' +
+                ", value=" + value +
+                ", valueMax=" + valueMax +
+                ", unitOfMeasure=" + unitOfMeasure +
+                '}';
     }
 }
 

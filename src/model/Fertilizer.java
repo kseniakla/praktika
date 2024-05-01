@@ -7,11 +7,20 @@ public class Fertilizer {
     private String name;
     private String space;
 
-    //todo создать класс для состава где прописать процентное содержание каждого элемента
     //todo для анализа создать отдельный класс
-    //todo сделать чтобы метод to string возвращал состав как на сайте фосагро
+    //хорошо спасибо!!
     private List<Component> componentList = new ArrayList<>();
     private String formule;
+
+    @Override
+    public String toString() {
+        return "Fertilizer{" +
+                "name='" + name + '\'' +
+                ", space='" + space + '\'' +
+                ", componentList=" + componentList +
+                ", formule='" + formule + '\'' +
+                '}';
+    }
 
     public Fertilizer(String name, String space, List<Component> componentList) {
         this.name = name;
@@ -26,7 +35,6 @@ public class Fertilizer {
         return space;
     }
     public List<Component> getComponentList(){ return componentList; }
-
 
     public String getFormule() {
         return formule;
